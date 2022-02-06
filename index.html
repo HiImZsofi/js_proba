@@ -1,1 +1,39 @@
-<html> x </html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Database</title>
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="osszes" style="font-size: 20px; color: red;">
+        Ide jön a content
+    </div>
+
+</body>
+
+<script>
+    $('#osszes').click(function () {
+
+        $.ajax({
+            url: "/get/list",
+            type: "POST",
+            success: function (data) {
+                console.log(data)
+
+                var valasz = ''
+                for (var i = 0; i < data.length; i++) {
+
+                    valasz += data[i].champname + " " + data[i].champrole + " " + data[i]
+                        .releasedate
+                }
+                $('#osszes').html(valasz)
+            }
+        });
+    });
+</script>
+
+</html>
