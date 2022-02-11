@@ -26,6 +26,7 @@ db.connect((err) => {
 app.get('/', (req, res) => {
 
   var sql = `SELECT * FROM champions WHERE releasedate > '2012-01-01';`
+  
   db.query(sql, (err, dbres) => {
     if (err) {
       console.log(err.message);
@@ -34,6 +35,7 @@ app.get('/', (req, res) => {
 
     } else {
       console.log("Response:");
+
       console.log(dbres);
       res.send(dbres[0].champname + ' kiadas napja: ' + dbres[0].releasedate);
     }
@@ -69,7 +71,9 @@ app.get('/list', (req, res) => {
 
 })
 
-app.post('/get/list', (req, res) => {
+
+
+app.get('/get/list', (req, res) => {
 
   var sql = `select * from champions;`
   db.query(sql, (err, dbres) => {
@@ -86,5 +90,11 @@ app.post('/get/list', (req, res) => {
     }
 
   })
+
+})
+
+app.get('/get/all', (req, res) => {
+
+ res.send('click here');
 
 })

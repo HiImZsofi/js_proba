@@ -10,7 +10,7 @@
 <body>
 
     <div id="osszes" style="font-size: 20px; color: red;">
-        Ide jön a content
+        ide jön a content
     </div>
 
 </body>
@@ -19,7 +19,7 @@
     $('#osszes').click(function () {
 
         $.ajax({
-            url: "/get/list",
+            url: "/get/all",
             type: "POST",
             success: function (data) {
                 console.log(data)
@@ -27,10 +27,10 @@
                 var valasz = ''
                 for (var i = 0; i < data.length; i++) {
 
-                    valasz += data[i].champname + " " + data[i].champrole + " " + data[i]
-                        .releasedate
+                    //valasz += data[i].champname + " " + data[i].champrole + " " + data[i].releasedate
+                    valasz = "asd"
                 }
-                $('#osszes').html(valasz)
+                $('#osszes').html(valasz);
             }
         });
     });
